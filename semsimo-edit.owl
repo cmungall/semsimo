@@ -1,0 +1,464 @@
+Prefix: : <http://purl.obolibrary.org/obo/terf_>
+Prefix: dc: <http://purl.org/dc/elements/1.1/>
+Prefix: oo: <http://www.geneontology.org/formats/oboInOwl#>
+Prefix: obo: <http://purl.obolibrary.org/obo/>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: scv: <http://purl.org/NET/scovo#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: synonym: <http://purl.obolibrary.org/obo/IAO_0000118>
+Prefix: definition: <http://purl.obolibrary.org/obo/IAO_0000115>
+
+
+
+Ontology: <http://purl.obolibrary.org/obo/semsim.owl>
+
+
+AnnotationProperty: obo:IAO_0000115
+
+    Annotations: 
+        rdfs:label "definition"^^xsd:string
+    
+    Annotations: 
+        rdfs:label "definition"^^xsd:string
+    
+    
+AnnotationProperty: obo:SEMSIM_0000038
+
+    Annotations: 
+        rdfs:label "latex formula"@en
+    
+    Annotations: 
+        rdfs:label "latex formula"@en
+    
+    
+AnnotationProperty: obo:SEMSIM_0000047
+
+    Annotations: 
+        rdfs:label "abbreviation"@en
+    
+    Annotations: 
+        rdfs:label "abbreviation"@en
+    
+    SubPropertyOf: 
+        obo:IAO_0000118
+    
+    
+AnnotationProperty: obo:IAO_0000118
+
+    Annotations: 
+        rdfs:label "alternate term"
+    
+    Annotations: 
+        rdfs:label "alternate term"
+    
+    
+AnnotationProperty: rdfs:label
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: obo:SEMSIM_0000029
+
+    Annotations: 
+        rdfs:label "has data input"@en
+    
+    
+ObjectProperty: obo:SEMSIM_0000044
+
+    Annotations: 
+        rdfs:label "has subprocedure"@en
+    
+    
+ObjectProperty: obo:SEMSIM_0000034
+
+    Annotations: 
+        rdfs:label "has part"@en
+    
+    
+ObjectProperty: obo:SEMSIM_0000033
+
+    Annotations: 
+        rdfs:label "applies operation"@en
+    
+    
+ObjectProperty: obo:SEMSIM_0000005
+
+    Annotations: 
+        rdfs:label "has characteristic"@en
+    
+    
+Class: obo:SEMSIM_0000035
+
+    Annotations: 
+        rdfs:label "data item"@en
+    
+    
+Class: obo:SEMSIM_0000011
+
+    Annotations: 
+        rdfs:label "method for aggregating multiple annotations for a pair of individuals"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000036
+    
+    
+Class: obo:SEMSIM_0000036
+
+    Annotations: 
+        rdfs:label "sub-method"@en
+    
+    
+Class: obo:SEMSIM_0000012
+
+    Annotations: 
+        rdfs:label "taking best matching ontology class pair"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000011
+    
+    
+Class: obo:SEMSIM_0000037
+
+    Annotations: 
+        rdfs:label "distance-based similarity measure between two ontology classes"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000016
+    
+    
+Class: obo:SEMSIM_0000010
+
+    Annotations: 
+        rdfs:label "Cosine similarity"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000007
+    
+    
+Class: obo:SEMSIM_0000039
+
+    Annotations: 
+        rdfs:label "ontology"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000035
+    
+    
+Class: obo:SEMSIM_0000019
+
+    Annotations: 
+        rdfs:label "Jaccard similarity between two ontology classes, using entire ontology graph"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000006
+    
+    
+Class: obo:SEMSIM_0000018
+
+    Annotations: 
+        rdfs:label "Jaccard similarity between two ontology classes, using subclass hierarchy"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000006
+    
+    
+Class: obo:SEMSIM_0000017
+
+    Annotations: 
+        rdfs:label "pairwise similarity between two individuals"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000004
+    
+    
+Class: obo:SEMSIM_0000050
+
+    Annotations: 
+        rdfs:label "Asymmetric BMA between two individuals, disease-first"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000048
+    
+    
+Class: obo:SEMSIM_0000032
+
+    Annotations: 
+        rdfs:label "average of all best matching jaccard scores between all annotations of two individuals"@en
+    
+    EquivalentTo: 
+        obo:SEMSIM_0000009
+         and (obo:SEMSIM_0000044 some obo:SEMSIM_0000013)
+    
+    SubClassOf: 
+        obo:SEMSIM_0000009
+    
+    
+Class: obo:SEMSIM_0000016
+
+    Annotations: 
+        obo:IAO_0000115 "A semantic similarity measure where one ontology class is compared with another. ",
+        rdfs:label "semantic similarity measure between two ontology classes"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000004,
+        obo:SEMSIM_0000029 some obo:SEMSIM_0000027
+    
+    
+Class: obo:SEMSIM_0000031
+
+    Annotations: 
+        rdfs:label "Jaccard similarity between two individuals, using all annotations as input"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000009
+    
+    
+Class: obo:SEMSIM_0000015
+
+    Annotations: 
+        rdfs:label "best match average, symmetric"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000011
+    
+    
+Class: obo:SEMSIM_0000014
+
+    Annotations: 
+        rdfs:label "best match average, asymmetric"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000011
+    
+    
+Class: obo:SEMSIM_0000013
+
+    Annotations: 
+        rdfs:label "taking average of all pairwise class scores"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000011
+    
+    
+Class: obo:SEMSIM_0000048
+
+    Annotations: 
+        rdfs:label "Asymmetric BMA between two individuals"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000017
+    
+    
+Class: obo:SEMSIM_0000020
+
+    Annotations: 
+        rdfs:label "per-class metric"@en
+    
+    
+Class: obo:SEMSIM_0000049
+
+    Annotations: 
+        rdfs:label "Symmetric BMA between two individuals"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000017
+    
+    
+Class: obo:SEMSIM_0000021
+
+    Annotations: 
+        rdfs:label "information content of an ontology class"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000020
+    
+    
+Class: obo:SEMSIM_0000046
+
+    Annotations: 
+        rdfs:label "node-based similarity between two ontology classes"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000016
+    
+    
+Class: obo:SEMSIM_0000022
+
+    Annotations: 
+        rdfs:label "maximum information content of common subsumers of pair of ontology classes"@en,
+        obo:IAO_0000118 "Resnick similarity"
+    
+    SubClassOf: 
+        obo:SEMSIM_0000046
+    
+    
+Class: obo:SEMSIM_0000023
+
+    Annotations: 
+        rdfs:label "class or individual"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000035
+    
+    
+Class: obo:SEMSIM_0000001
+
+    Annotations: 
+        rdfs:label "semantic similarity measure"@en,
+        obo:IAO_0000115 "A metric for measuring similarity of two or more things calculated using an ontology"
+    
+    SubClassOf: 
+        obo:SEMSIM_0000042,
+        obo:SEMSIM_0000029 some obo:SEMSIM_0000039
+    
+    
+Class: obo:SEMSIM_0000041
+
+    Annotations: 
+        rdfs:label "ontology importing other ontologies"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000039
+    
+    
+Class: obo:SEMSIM_0000040
+
+    Annotations: 
+        rdfs:label "single ontology"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000039
+    
+    
+Class: obo:SEMSIM_0000028
+
+    Annotations: 
+        rdfs:label "pair"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000035
+    
+    
+Class: obo:SEMSIM_0000004
+
+    Annotations: 
+        rdfs:label "pairwise semantic similarity measure"@en,
+        obo:IAO_0000115 "A semantic similarity measure that takes a pair of data items as input. These are typically of the same type - i.e. comparing individual to individual or ontology class to ontology class"
+    
+    EquivalentTo: 
+        obo:SEMSIM_0000001
+         and (obo:SEMSIM_0000029 some obo:SEMSIM_0000028)
+    
+    SubClassOf: 
+        obo:SEMSIM_0000001
+    
+    
+Class: obo:SEMSIM_0000045
+
+    Annotations: 
+        rdfs:label "minimal distance between two ontology classes via common ancestor"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000037
+    
+    
+Class: obo:SEMSIM_0000007
+
+    Annotations: 
+        rdfs:label "set or vector based operation"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000036
+    
+    
+Class: obo:SEMSIM_0000025
+
+    Annotations: 
+        rdfs:label "individual"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000023
+    
+    
+Class: obo:SEMSIM_0000006
+
+    Annotations: 
+        rdfs:label "Jaccard similarity between two ontology classes"@en
+    
+    EquivalentTo: 
+        obo:SEMSIM_0000016
+         and (obo:SEMSIM_0000044 some obo:SEMSIM_0000008)
+    
+    
+Class: obo:SEMSIM_0000024
+
+    Annotations: 
+        rdfs:label "ontology class"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000023
+    
+    
+Class: obo:SEMSIM_0000043
+
+    Annotations: 
+        rdfs:label "n-ary semantic similarity measure"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000001
+    
+    
+Class: obo:SEMSIM_0000027
+
+    Annotations: 
+        rdfs:label "pair of classes"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000028
+    
+    
+Class: obo:SEMSIM_0000009
+
+    Annotations: 
+        obo:IAO_0000115 "Jaccard similarity between all inferred classes associated with i and all inferrer classes associated with j",
+        rdfs:label "Jaccard similarity between two individuals"@en
+    
+    EquivalentTo: 
+        obo:SEMSIM_0000017
+         and (obo:SEMSIM_0000044 some obo:SEMSIM_0000008)
+    
+    SubClassOf: 
+        obo:SEMSIM_0000017
+    
+    
+Class: obo:SEMSIM_0000042
+
+    Annotations: 
+        rdfs:label "procedure"@en
+    
+    
+Class: obo:SEMSIM_0000026
+
+    Annotations: 
+        rdfs:label "pair of individuals"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000028
+    
+    
+Class: obo:SEMSIM_0000008
+
+    Annotations: 
+        rdfs:label "Jaccard similarity"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000007
+    
+    
