@@ -58,6 +58,9 @@ AnnotationProperty: obo:IAO_0000118
 AnnotationProperty: rdfs:label
 
     
+AnnotationProperty: rdfs:comment
+
+    
 Datatype: rdf:PlainLiteral
 
     
@@ -68,6 +71,9 @@ ObjectProperty: obo:SEMSIM_0000029
 
     Annotations: 
         rdfs:label "has data input"@en
+    
+    SubPropertyChain: 
+        obo:SEMSIM_0000029 o obo:SEMSIM_0000034
     
     
 ObjectProperty: obo:SEMSIM_0000044
@@ -114,6 +120,9 @@ Class: obo:SEMSIM_0000036
     Annotations: 
         rdfs:label "sub-method"@en
     
+    SubClassOf: 
+        obo:SEMSIM_0000042
+    
     
 Class: obo:SEMSIM_0000012
 
@@ -151,6 +160,25 @@ Class: obo:SEMSIM_0000039
         obo:SEMSIM_0000035
     
     
+Class: obo:SEMSIM_0000054
+
+    Annotations: 
+        rdfs:label "class overlap between two individuals"@en,
+        obo:SEMSIM_0000038 "sim_{TO}(i, j)  = \\lvert A(i) \\cap A(j) \\rvert"
+    
+    SubClassOf: 
+        obo:SEMSIM_0000055
+    
+    
+Class: obo:SEMSIM_0000053
+
+    Annotations: 
+        rdfs:label "gene"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000025
+    
+    
 Class: obo:SEMSIM_0000019
 
     Annotations: 
@@ -167,6 +195,15 @@ Class: obo:SEMSIM_0000018
     
     SubClassOf: 
         obo:SEMSIM_0000006
+    
+    
+Class: obo:SEMSIM_0000055
+
+    Annotations: 
+        rdfs:label "graph-based pairwise similarity between two individuals"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000017
     
     
 Class: obo:SEMSIM_0000017
@@ -211,15 +248,6 @@ Class: obo:SEMSIM_0000016
         obo:SEMSIM_0000029 some obo:SEMSIM_0000027
     
     
-Class: obo:SEMSIM_0000031
-
-    Annotations: 
-        rdfs:label "Jaccard similarity between two individuals, using all annotations as input"@en
-    
-    SubClassOf: 
-        obo:SEMSIM_0000009
-    
-    
 Class: obo:SEMSIM_0000015
 
     Annotations: 
@@ -229,6 +257,25 @@ Class: obo:SEMSIM_0000015
         obo:SEMSIM_0000011
     
     
+Class: obo:SEMSIM_0000031
+
+    Annotations: 
+        obo:SEMSIM_0000038 "",
+        rdfs:label "Jaccard similarity between two individuals, using all annotations as input"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000009
+    
+    
+Class: obo:SEMSIM_0000052
+
+    Annotations: 
+        rdfs:label "model"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000025
+    
+    
 Class: obo:SEMSIM_0000014
 
     Annotations: 
@@ -236,6 +283,15 @@ Class: obo:SEMSIM_0000014
     
     SubClassOf: 
         obo:SEMSIM_0000011
+    
+    
+Class: obo:SEMSIM_0000051
+
+    Annotations: 
+        rdfs:label "disorder"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000025
     
     
 Class: obo:SEMSIM_0000013
@@ -280,15 +336,6 @@ Class: obo:SEMSIM_0000021
         obo:SEMSIM_0000020
     
     
-Class: obo:SEMSIM_0000046
-
-    Annotations: 
-        rdfs:label "node-based similarity between two ontology classes"@en
-    
-    SubClassOf: 
-        obo:SEMSIM_0000016
-    
-    
 Class: obo:SEMSIM_0000022
 
     Annotations: 
@@ -297,6 +344,15 @@ Class: obo:SEMSIM_0000022
     
     SubClassOf: 
         obo:SEMSIM_0000046
+    
+    
+Class: obo:SEMSIM_0000046
+
+    Annotations: 
+        rdfs:label "node-based similarity between two ontology classes"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000016
     
     
 Class: obo:SEMSIM_0000023
@@ -328,15 +384,6 @@ Class: obo:SEMSIM_0000041
         obo:SEMSIM_0000039
     
     
-Class: obo:SEMSIM_0000040
-
-    Annotations: 
-        rdfs:label "single ontology"@en
-    
-    SubClassOf: 
-        obo:SEMSIM_0000039
-    
-    
 Class: obo:SEMSIM_0000028
 
     Annotations: 
@@ -344,6 +391,15 @@ Class: obo:SEMSIM_0000028
     
     SubClassOf: 
         obo:SEMSIM_0000035
+    
+    
+Class: obo:SEMSIM_0000040
+
+    Annotations: 
+        rdfs:label "single ontology"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000039
     
     
 Class: obo:SEMSIM_0000004
@@ -360,13 +416,14 @@ Class: obo:SEMSIM_0000004
         obo:SEMSIM_0000001
     
     
-Class: obo:SEMSIM_0000045
+Class: obo:SEMSIM_0000025
 
     Annotations: 
-        rdfs:label "minimal distance between two ontology classes via common ancestor"@en
+        rdfs:comment "In this context, 'individual' denotes an entity of interest to be compared. It need not be explicitly modeled as an owl individual",
+        rdfs:label "individual"@en
     
     SubClassOf: 
-        obo:SEMSIM_0000037
+        obo:SEMSIM_0000023
     
     
 Class: obo:SEMSIM_0000007
@@ -378,10 +435,19 @@ Class: obo:SEMSIM_0000007
         obo:SEMSIM_0000036
     
     
-Class: obo:SEMSIM_0000025
+Class: obo:SEMSIM_0000045
 
     Annotations: 
-        rdfs:label "individual"@en
+        rdfs:label "minimal distance between two ontology classes via common ancestor"@en
+    
+    SubClassOf: 
+        obo:SEMSIM_0000037
+    
+    
+Class: obo:SEMSIM_0000024
+
+    Annotations: 
+        rdfs:label "ontology class"@en
     
     SubClassOf: 
         obo:SEMSIM_0000023
@@ -397,13 +463,16 @@ Class: obo:SEMSIM_0000006
          and (obo:SEMSIM_0000044 some obo:SEMSIM_0000008)
     
     
-Class: obo:SEMSIM_0000024
+Class: obo:SEMSIM_0000027
 
     Annotations: 
-        rdfs:label "ontology class"@en
+        rdfs:label "pair of classes"@en
+    
+    EquivalentTo: 
+        obo:SEMSIM_0000034 exactly 2 obo:SEMSIM_0000024
     
     SubClassOf: 
-        obo:SEMSIM_0000023
+        obo:SEMSIM_0000028
     
     
 Class: obo:SEMSIM_0000043
@@ -415,33 +484,19 @@ Class: obo:SEMSIM_0000043
         obo:SEMSIM_0000001
     
     
-Class: obo:SEMSIM_0000027
-
-    Annotations: 
-        rdfs:label "pair of classes"@en
-    
-    SubClassOf: 
-        obo:SEMSIM_0000028
-    
-    
 Class: obo:SEMSIM_0000009
 
     Annotations: 
         obo:IAO_0000115 "Jaccard similarity between all inferred classes associated with i and all inferrer classes associated with j",
-        rdfs:label "Jaccard similarity between two individuals"@en
+        rdfs:label "Jaccard similarity between two individuals"@en,
+        obo:SEMSIM_0000038 "sim_{J}(i, j)  = \\frac{\\lvert A(i) \\cap A(j) \\rvert} {\\lvert A(i) \\cup A(j) \\rvert} "
     
     EquivalentTo: 
         obo:SEMSIM_0000017
          and (obo:SEMSIM_0000044 some obo:SEMSIM_0000008)
     
     SubClassOf: 
-        obo:SEMSIM_0000017
-    
-    
-Class: obo:SEMSIM_0000042
-
-    Annotations: 
-        rdfs:label "procedure"@en
+        obo:SEMSIM_0000055
     
     
 Class: obo:SEMSIM_0000026
@@ -449,8 +504,17 @@ Class: obo:SEMSIM_0000026
     Annotations: 
         rdfs:label "pair of individuals"@en
     
+    EquivalentTo: 
+        obo:SEMSIM_0000034 exactly 2 obo:SEMSIM_0000025
+    
     SubClassOf: 
         obo:SEMSIM_0000028
+    
+    
+Class: obo:SEMSIM_0000042
+
+    Annotations: 
+        rdfs:label "procedure"@en
     
     
 Class: obo:SEMSIM_0000008
