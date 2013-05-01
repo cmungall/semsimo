@@ -1,0 +1,265 @@
+format-version: 1.2
+ontology: semsim
+owl-axioms: Prefix(owl:=<http://www.w3.org/2002/07/owl#>)\nPrefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)\nPrefix(xml:=<http://www.w3.org/XML/1998/namespace>)\nPrefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)\nPrefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)\n\n\nOntology(\nEquivalentClasses(<http://purl.obolibrary.org/obo/SEMSIM_0000026> ObjectExactCardinality(2 <http://purl.obolibrary.org/obo/SEMSIM_0000034> <http://purl.obolibrary.org/obo/SEMSIM_0000025>))\nEquivalentClasses(<http://purl.obolibrary.org/obo/SEMSIM_0000027> ObjectExactCardinality(2 <http://purl.obolibrary.org/obo/SEMSIM_0000034> <http://purl.obolibrary.org/obo/SEMSIM_0000024>))\nSubAnnotationPropertyOf(<http://purl.obolibrary.org/obo/SEMSIM_0000047> <http://purl.obolibrary.org/obo/IAO_0000118>)\n)
+
+[Term]
+id: SEMSIM:0000001
+name: semantic similarity measure
+def: "A metric for measuring similarity of two or more things calculated using an ontology" []
+is_a: SEMSIM:0000042 ! procedure
+relationship: SEMSIM:0000029 SEMSIM:0000039 ! has data input ontology
+
+[Term]
+id: SEMSIM:0000004
+name: pairwise semantic similarity measure
+def: "A semantic similarity measure that takes a pair of data items as input. These are typically of the same type - i.e. comparing individual to individual or ontology class to ontology class" []
+is_a: SEMSIM:0000001 ! semantic similarity measure
+intersection_of: SEMSIM:0000001 ! semantic similarity measure
+intersection_of: SEMSIM:0000029 SEMSIM:0000028 ! has data input pair
+
+[Term]
+id: SEMSIM:0000006
+name: Jaccard similarity between two ontology classes
+intersection_of: SEMSIM:0000016 ! semantic similarity measure between two ontology classes
+intersection_of: SEMSIM:0000044 SEMSIM:0000008 ! has subprocedure Jaccard similarity
+
+[Term]
+id: SEMSIM:0000007
+name: set or vector based operation
+is_a: SEMSIM:0000036 ! sub-method
+
+[Term]
+id: SEMSIM:0000008
+name: Jaccard similarity
+is_a: SEMSIM:0000007 ! set or vector based operation
+
+[Term]
+id: SEMSIM:0000009
+name: Jaccard similarity between two individuals
+def: "Jaccard similarity between all inferred classes associated with i and all inferrer classes associated with j" []
+is_a: SEMSIM:0000055 ! graph-based pairwise similarity between two individuals
+intersection_of: SEMSIM:0000017 ! pairwise similarity between two individuals
+intersection_of: SEMSIM:0000044 SEMSIM:0000008 ! has subprocedure Jaccard similarity
+property_value: SEMSIM:0000038 "sim_{J}(i, j)  = \\frac{\\lvert A(i) \\cap A(j) \\rvert} {\\lvert A(i) \\cup A(j) \\rvert} " xsd:string
+
+[Term]
+id: SEMSIM:0000010
+name: Cosine similarity
+is_a: SEMSIM:0000007 ! set or vector based operation
+
+[Term]
+id: SEMSIM:0000011
+name: method for aggregating multiple annotations for a pair of individuals
+is_a: SEMSIM:0000036 ! sub-method
+
+[Term]
+id: SEMSIM:0000012
+name: taking best matching ontology class pair
+is_a: SEMSIM:0000011 ! method for aggregating multiple annotations for a pair of individuals
+
+[Term]
+id: SEMSIM:0000013
+name: taking average of all pairwise class scores
+is_a: SEMSIM:0000011 ! method for aggregating multiple annotations for a pair of individuals
+
+[Term]
+id: SEMSIM:0000014
+name: best match average, asymmetric
+is_a: SEMSIM:0000011 ! method for aggregating multiple annotations for a pair of individuals
+
+[Term]
+id: SEMSIM:0000015
+name: best match average, symmetric
+is_a: SEMSIM:0000011 ! method for aggregating multiple annotations for a pair of individuals
+
+[Term]
+id: SEMSIM:0000016
+name: semantic similarity measure between two ontology classes
+def: "A semantic similarity measure where one ontology class is compared with another. " []
+is_a: SEMSIM:0000004 ! pairwise semantic similarity measure
+relationship: SEMSIM:0000029 SEMSIM:0000027 ! has data input pair of classes
+
+[Term]
+id: SEMSIM:0000017
+name: pairwise similarity between two individuals
+is_a: SEMSIM:0000004 ! pairwise semantic similarity measure
+
+[Term]
+id: SEMSIM:0000018
+name: Jaccard similarity between two ontology classes, using subclass hierarchy
+is_a: SEMSIM:0000006 ! Jaccard similarity between two ontology classes
+
+[Term]
+id: SEMSIM:0000019
+name: Jaccard similarity between two ontology classes, using entire ontology graph
+is_a: SEMSIM:0000006 ! Jaccard similarity between two ontology classes
+
+[Term]
+id: SEMSIM:0000020
+name: per-class metric
+
+[Term]
+id: SEMSIM:0000021
+name: information content of an ontology class
+is_a: SEMSIM:0000020 ! per-class metric
+
+[Term]
+id: SEMSIM:0000022
+name: maximum information content of common subsumers of pair of ontology classes
+is_a: SEMSIM:0000046 ! node-based similarity between two ontology classes
+property_value: IAO:0000118 "Resnick similarity" xsd:string
+
+[Term]
+id: SEMSIM:0000023
+name: class or individual
+is_a: SEMSIM:0000035 ! data item
+
+[Term]
+id: SEMSIM:0000024
+name: ontology class
+is_a: SEMSIM:0000023 ! class or individual
+
+[Term]
+id: SEMSIM:0000025
+name: individual
+comment: In this context, 'individual' denotes an entity of interest to be compared. It need not be explicitly modeled as an owl individual
+is_a: SEMSIM:0000023 ! class or individual
+
+[Term]
+id: SEMSIM:0000026
+name: pair of individuals
+is_a: SEMSIM:0000028 ! pair
+
+[Term]
+id: SEMSIM:0000027
+name: pair of classes
+is_a: SEMSIM:0000028 ! pair
+
+[Term]
+id: SEMSIM:0000028
+name: pair
+is_a: SEMSIM:0000035 ! data item
+
+[Term]
+id: SEMSIM:0000031
+name: Jaccard similarity between two individuals, using all annotations as input
+is_a: SEMSIM:0000009 ! Jaccard similarity between two individuals
+property_value: SEMSIM:0000038 "" xsd:string
+
+[Term]
+id: SEMSIM:0000032
+name: average of all best matching jaccard scores between all annotations of two individuals
+is_a: SEMSIM:0000009 ! Jaccard similarity between two individuals
+intersection_of: SEMSIM:0000009 ! Jaccard similarity between two individuals
+intersection_of: SEMSIM:0000044 SEMSIM:0000013 ! has subprocedure taking average of all pairwise class scores
+
+[Term]
+id: SEMSIM:0000035
+name: data item
+
+[Term]
+id: SEMSIM:0000036
+name: sub-method
+is_a: SEMSIM:0000042 ! procedure
+
+[Term]
+id: SEMSIM:0000037
+name: distance-based similarity measure between two ontology classes
+is_a: SEMSIM:0000016 ! semantic similarity measure between two ontology classes
+
+[Term]
+id: SEMSIM:0000039
+name: ontology
+is_a: SEMSIM:0000035 ! data item
+
+[Term]
+id: SEMSIM:0000040
+name: single ontology
+is_a: SEMSIM:0000039 ! ontology
+
+[Term]
+id: SEMSIM:0000041
+name: ontology importing other ontologies
+is_a: SEMSIM:0000039 ! ontology
+
+[Term]
+id: SEMSIM:0000042
+name: procedure
+
+[Term]
+id: SEMSIM:0000043
+name: n-ary semantic similarity measure
+is_a: SEMSIM:0000001 ! semantic similarity measure
+
+[Term]
+id: SEMSIM:0000045
+name: minimal distance between two ontology classes via common ancestor
+is_a: SEMSIM:0000037 ! distance-based similarity measure between two ontology classes
+
+[Term]
+id: SEMSIM:0000046
+name: node-based similarity between two ontology classes
+is_a: SEMSIM:0000016 ! semantic similarity measure between two ontology classes
+
+[Term]
+id: SEMSIM:0000048
+name: Asymmetric BMA between two individuals
+is_a: SEMSIM:0000017 ! pairwise similarity between two individuals
+
+[Term]
+id: SEMSIM:0000049
+name: Symmetric BMA between two individuals
+is_a: SEMSIM:0000017 ! pairwise similarity between two individuals
+
+[Term]
+id: SEMSIM:0000050
+name: Asymmetric BMA between two individuals, disease-first
+is_a: SEMSIM:0000048 ! Asymmetric BMA between two individuals
+
+[Term]
+id: SEMSIM:0000051
+name: disorder
+is_a: SEMSIM:0000025 ! individual
+
+[Term]
+id: SEMSIM:0000052
+name: model
+is_a: SEMSIM:0000025 ! individual
+
+[Term]
+id: SEMSIM:0000053
+name: gene
+is_a: SEMSIM:0000025 ! individual
+
+[Term]
+id: SEMSIM:0000054
+name: class overlap between two individuals
+is_a: SEMSIM:0000055 ! graph-based pairwise similarity between two individuals
+property_value: SEMSIM:0000038 "sim_{TO}(i, j)  = \\lvert A(i) \\cap A(j) \\rvert" xsd:string
+
+[Term]
+id: SEMSIM:0000055
+name: graph-based pairwise similarity between two individuals
+is_a: SEMSIM:0000017 ! pairwise similarity between two individuals
+
+[Typedef]
+id: SEMSIM:0000005
+name: has characteristic
+
+[Typedef]
+id: SEMSIM:0000029
+name: has data input
+transitive_over: SEMSIM:0000034 ! has part
+
+[Typedef]
+id: SEMSIM:0000033
+name: applies operation
+
+[Typedef]
+id: SEMSIM:0000034
+name: has part
+
+[Typedef]
+id: SEMSIM:0000044
+name: has subprocedure
+
